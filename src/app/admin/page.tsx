@@ -1,5 +1,6 @@
 import AdminLayout from '@/components/AdminLayout';
 import { prisma } from '@/lib/prisma';
+import { Order, User } from '@prisma/client';
 
 async function getStats() {
   const [productCount, orderCount, userCount, pendingOrders] = await Promise.all([
@@ -11,7 +12,7 @@ async function getStats() {
   return { productCount, orderCount, userCount, pendingOrders };
 }
 
-async function getRecentOrders() {
+async function getRecentOrders(): Promise<(Order & { user: Pick<User, 'name' | 'email'> | null })[]> {
   const orders = await prisma.order.findMany({
     take: 5,
     orderBy: { createdAt: 'desc' },
