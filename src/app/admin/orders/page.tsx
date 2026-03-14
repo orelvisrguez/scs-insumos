@@ -30,14 +30,6 @@ const statusColors: Record<string, string> = {
   CANCELLED: 'bg-red-100 text-red-800 border-red-200',
 };
 
-const statusLabels: Record<string, string> = {
-  PENDING: 'Pendiente',
-  PAID: 'Pagado',
-  SHIPPED: 'Enviado',
-  DELIVERED: 'Entregado',
-  CANCELLED: 'Cancelado',
-};
-
 const statusOptions = [
   { value: 'PENDING', label: 'Pendiente', color: 'yellow' },
   { value: 'PAID', label: 'Pagado', color: 'green' },

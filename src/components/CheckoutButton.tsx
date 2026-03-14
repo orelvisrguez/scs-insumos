@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useSession, signIn } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 interface CheckoutButtonProps {
@@ -53,7 +53,7 @@ export default function CheckoutButton({ items }: CheckoutButtonProps) {
       if (data.initPoint) {
         window.location.href = data.initPoint;
       }
-    } catch (err) {
+    } catch {
       setError('Failed to initiate checkout');
     } finally {
       setLoading(false);
