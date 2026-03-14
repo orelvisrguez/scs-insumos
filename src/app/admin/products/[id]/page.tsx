@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
+import Link from 'next/link';
 import AdminLayout from '@/components/AdminLayout';
 
 const defaultCategories = ['General', 'Escritura', 'Papel', 'Oficina', 'Archivos', 'Tecnologia', 'Arte'];
@@ -102,7 +103,7 @@ export default function EditProductPage() {
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
           <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
-            <a href="/admin/products" className="hover:text-blue-600">Productos</a>
+            <Link href="/admin/products" className="hover:text-blue-600">Productos</Link>
             <span>/</span>
             <span className="text-gray-900 font-medium">Editar producto</span>
           </div>

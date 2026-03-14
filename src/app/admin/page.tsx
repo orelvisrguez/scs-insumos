@@ -1,6 +1,7 @@
 import AdminLayout from '@/components/AdminLayout';
 import { prisma } from '@/lib/prisma';
 import { Order, User } from '@prisma/client';
+import Link from 'next/link';
 
 async function getStats() {
   const [productCount, orderCount, userCount, pendingOrders] = await Promise.all([
@@ -101,18 +102,19 @@ export default async function AdminDashboard() {
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
             <h2 className="text-lg font-bold text-gray-900 mb-6">Acciones rápidas</h2>
             <div className="grid grid-cols-2 gap-4">
-              <a
+              <Link
                 href="/admin/products/new"
                 className="flex flex-col items-center justify-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors group"
               >
+
                 <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                   </svg>
                 </div>
                 <span className="font-medium text-gray-900">Nuevo producto</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/admin/orders"
                 className="flex flex-col items-center justify-center p-6 bg-green-50 rounded-xl hover:bg-green-100 transition-colors group"
               >
@@ -122,8 +124,8 @@ export default async function AdminDashboard() {
                   </svg>
                 </div>
                 <span className="font-medium text-gray-900">Ver pedidos</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/admin/products"
                 className="flex flex-col items-center justify-center p-6 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors group"
               >
@@ -133,8 +135,8 @@ export default async function AdminDashboard() {
                   </svg>
                 </div>
                 <span className="font-medium text-gray-900">Editar productos</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/"
                 className="flex flex-col items-center justify-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors group"
               >
@@ -144,7 +146,7 @@ export default async function AdminDashboard() {
                   </svg>
                 </div>
                 <span className="font-medium text-gray-900">Ver tienda</span>
-              </a>
+              </Link>
             </div>
           </div>
 
